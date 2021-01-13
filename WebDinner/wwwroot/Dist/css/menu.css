@@ -1,0 +1,58 @@
+﻿
+.cont .first {
+    position: absolute;
+    /*top: 5%;
+    left: 25%;*/
+    margin-top:30px;
+    margin-left:50px;
+    margin-bottom:10px;
+    transform: translate(-40 %, -50 %);
+    -ms-transform: translate(-40 %, -50 %);
+}
+
+
+
+.cont .second {
+    position: absolute;
+    /*top: 20%;
+        left: 35%;*/
+    margin-top: 30px;
+    margin-left: 40px;
+    margin-bottom: 10px;
+    transform: translate(-30 %, -50 %);
+    -ms-transform: translate(-30 %, -50 %);
+}
+
+.cont .salad {
+    position: absolute;
+    /*top: 30px;
+    left: 40%;*/
+    top:80px;
+    left:60px;
+    transform: translate(-30 %, -50 %);
+    -ms-transform: translate(-30 %, -50 %);
+}
+
+.cont .pizza {
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    transform: translate(-30 %, -50 %);
+    -ms-transform: translate(-30 %, -50 %);
+}
+
+.cont .sandw {
+    position: absolute;
+    top: 25%;
+    left: 30%;
+    transform: translate(-30 %, -50 %);
+    -ms-transform: translate(-30 %, -50 %);
+}
+
+.cont .candy {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    transform: translate(-30 %, -50 %);
+    -ms-transform: translate(-30 %, -50 %);
+}

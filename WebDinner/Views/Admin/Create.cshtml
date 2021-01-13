@@ -1,0 +1,41 @@
+﻿@model AllMeals
+@{
+    ViewBag.Title = "Редактирование";
+    Layout = "_AdminLayout";
+}
+
+<div class="container">
+    <form asp-action="Create" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label asp-for="Name">Наименование</label>
+            <div><span asp-validation-for="Name" class="text-danger"></span></div>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Description">Описание</label>
+            <div><span asp-validation-for="Description" class="text-danger"></span></div>
+            <textarea asp-for="Description" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Price">Цена</label>
+            <div><span asp-validation-for="Price" class="text-danger"></span></div>
+            <input asp-for="Price" class="form-control" />
+        </div>
+        <div class="dropdown">
+            <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                Сохранить как
+            </a>
+            <ul class="dropdown-menu">
+                <li><button class="btn btn-primary" asp-route-mealtype="firstDish" style="width:200px">Первое блюдо</button></li>
+                <li><button class="btn btn-primary" asp-route-mealtype="secondDish" style="width:200px">Второе блюдо</button></li>
+                <li><button class="btn btn-primary" asp-route-mealtype="salad" style="width:200px">Салат</button></li>
+            </ul>
+        </div>
+            <div class="text-right">
+                @*<button class="btn btn-primary" type="submit">Сохранить</button>*@
+                <a asp-action="Index" class="btn btn-secondary">Отмена</a>
+            </div>
+    </form>
+</div>

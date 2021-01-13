@@ -1,0 +1,75 @@
+﻿@model IEnumerable<SecondDishes>
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Menu";
+}
+
+@*<link rel="stylesheet" asp-href-include="~/Dist/css/menu.css" />*@
+<div class="text-center m-1 p-1">
+    @Html.Partial("_Pages", Model)
+</div>
+
+<div class="row">
+    <div class="temp col-sm-4">
+        <div class="cont container">
+            <img class="img" src="~/Images/Collab2.jpg" />
+            <div class="cont2 container">
+                <a class="first" asp-controller="Home" asp-action="GetFirstDishes">
+                    <h1 style="color:#FFA500;font-family:'Segoe Script';font-weight:bold;top:50px;left:40px">Первые блюда</h1>
+                </a>
+                <a class="second" asp-controller="Home" asp-action="GetSecondDishes">
+                    <h1 style="color:#FFA500;font-family:'Segoe Script';font-weight:bold;top:50px;left:40px">Вторые блюда</h1>
+                </a>
+                <a class="salad" asp-controller="Home" asp-action="GetSecondDishes">
+                    <h1 style="color:#FFA500;font-family:'Segoe Script';font-weight:bold;top:50px;left:40px">Салаты</h1>
+                </a>
+                <a class="pizza" asp-controller="Home" asp-action="GetSecondDishes">
+                    <h1 style="color:#FFA500;font-family:'Segoe Script';font-weight:bold;top:50px;left:40px">Пицца</h1>
+                </a>
+                <a class="sandw" asp-controller="Home" asp-action="GetSecondDishes">
+                    <h1 style="color:#FFA500;font-family:'Segoe Script';font-weight:bold;top:50px;left:40px">Fast Food</h1>
+                </a>
+                <a class="candy" asp-controller="Home" asp-action="GetSecondDishes">
+                    <h1 style="color:#FFA500;font-family:'Segoe Script';font-weight:bold;top:50px;left:40px">Сладости</h1>
+                </a>
+            </div>
+        </div>
+        <style>
+            .temp .cont2 {
+                position: absolute;
+                top: 10%;
+                left: 20%;
+                transform: translate(-30 %, -50 %);
+                -ms-transform: translate(-30 %, -50 %);
+            }
+        </style>
+    </div>
+    <div class="col-sm-8">
+        <div class="bg-info text-white text-center" style="height:70px;left:10%;right:10%"><h1 style="padding-top:5px">Вторые блюда</h1></div>
+        <div class="container-fluid">
+            @foreach (var p in Model)
+            {
+            <div class="card m-1 p-1">
+                <div class="row" style="background-image:linear-gradient(#778899, #8B4513);border-radius:20px">
+                    <div class="col-sm-7">
+                        <h1 style="color:black;left:20%">@p.Name</h1>
+                        <p style="color:black;left:20%">@p.Description</p>
+                        <p style="color:black;font-size:16px;font-weight:bold;left:20%">@String.Format("{0:C}", p.Price)</p>
+                    </div>
+                    <div class="col-sm-3">
+                        <img class="m-1 p-1" src="@p.PhotoName.ToString()" width="180" height="150" style="border-radius:20px" />
+                    </div>
+                    <form id="@p.Id" asp-controller="Cart" asp-action="AddToSecondCart" method="post">
+                        <div class="col-sm-1">
+                            <input type="hidden" name="Id" value="@p.Id" />
+                            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                            <button class="btn btn-success mt-5 ml-1" id="bt1" style="width:90px;height:40px;top:20%">Заказать</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+

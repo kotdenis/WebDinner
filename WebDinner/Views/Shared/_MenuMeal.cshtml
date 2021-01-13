@@ -1,0 +1,27 @@
+﻿@Model  FirstDishes
+<div class="card m-1 p-1">
+    <div class="row" style="background-image:linear-gradient(#778899, #8B4513);border-radius:20px">
+        <div class="col-sm-7">
+            <h1 style="color:black;left:20%">@Model.Name</h1>
+            <p style="color:black;left:20%">@Model.Description</p>
+            <p style="color:black;font-size:16px;font-weight:bold;left:20%">@String.Format("{0:C}", Model.Price)</p>
+        </div>
+        <div class="col-sm-3">
+            <img class="m-1 p-1" src="@Model.PhotoName.ToString()" width="180" height="150" style="border-radius:20px" />
+        </div>
+        <form>
+            <div class="col-sm-1">
+                <input class="hid" type="hidden" value="@Model.Id" />
+                <button class="btn btn-success mt-5 ml-1" id="bt1" style="width:90px;height:40px;top:20%">Заказать</button>
+            </div>
+            <script>
+                                $(document).ready(function () {
+                                    $("#bt1").click(function () {
+                                        var val = document.getElementsByClassName("hid").value;
+                                        alert(val);
+                                    });
+                                });
+            </script>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+﻿
+@inject IMealRepository meal
+
+<div>
+    <div class="bg-info text-white text-center" style="height:70px"><h1 style="padding-top:5px">Первые блюда</h1></div>
+    @foreach (var p in meal.FirstDishes)
+    {
+        <div class="card m-1 p-1">
+            <div class="row bg-secondary">
+                <div class="col-sm-8">
+                    <h1 style="color:black;left:20%">@p.Name</h1>
+                    <p style="color:black;left:20%">@p.Description</p>
+                    <p style="color:black;font-size:16px;font-weight:bold;left:20%">@String.Format("{0:C}", p.Price)</p>
+                </div>
+                <div class="col-sm-3">
+                    <img class="m-1 p-1" src="@p.PhotoName.ToString()" width="180" height="150" />
+                </div>
+            </div>
+        </div>
+    }
+    <div class="bg-info text-white text-center" style="height:70px"><h1 style="padding-top:5px">Вторые блюда</h1></div>
+
+    @foreach (var p in meal.SecondDishes)
+    {
+        <div class="card m-1 p-1">
+            <div class="row bg-secondary">
+                <div class="col-sm-8">
+                    <h1 style="color:black;left:20%">@p.Name</h1>
+                    <p style="color:black;left:20%">@p.Description</p>
+                    <p style="color:black;font-size:16px;font-weight:bold;left:20%">@String.Format("{0:C}", p.Price)</p>
+                </div>
+                <div class="col-sm-3">
+                    <img class="m-1 p-1" src="@p.PhotoName.ToString()" width="180" height="150" />
+                </div>
+            </div>
+        </div>
+    }
+    @foreach (var p in meal.Salads)
+    {
+        <div class="card m-1 p-1">
+            <div class="row bg-secondary">
+                <div class="col-sm-8">
+                    <h1 style="color:black;left:20%">@p.Name</h1>
+                    <p style="color:black;left:20%">@p.Description</p>
+                    <p style="color:black;font-size:16px;font-weight:bold;left:20%">@String.Format("{0:C}", p.Price)</p>
+                </div>
+                <div class="col-sm-3">
+                    <img class="m-1 p-1" src="@p.PhotoName.ToString()" width="180" height="150" />
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+

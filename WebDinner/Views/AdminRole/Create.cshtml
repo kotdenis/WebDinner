@@ -1,0 +1,14 @@
+﻿@model string
+@{
+    Layout = "_AdminLayout";
+}
+<div class="bg-primary m-1 p-1"><h4>Запись роли</h4></div>
+<div asp-validation-summary="All" class="text-danger"></div>
+<form class="m-1 p-1" asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="name">Имя</label>
+        <input name="name" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Создать</button>
+    <a asp-action="Index" class="btn btn-secondary">Отмена</a>
+</form>

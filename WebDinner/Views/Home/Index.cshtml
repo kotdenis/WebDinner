@@ -1,0 +1,136 @@
+﻿@{
+    Layout = "_Layout";
+    ViewBag.Title = "Main";
+}
+
+@*<div class="container-fluid" style="background-color:darkblue;height:400px">
+    </div>*@
+<div class="container-fluid">
+    <div class="row m-1 p-1" style="right:40%;transform:translate(-1%)">
+        <div class="cl col-sm-4">
+            <img src="~/Images/coffee3.jpg" />
+            @*<button type="button" class="bt1 btn btn-outline-light">Primary Button</button>*@
+        </div>
+        <div class="im2 col-sm-4">
+            <img src="~/Images/ingredients3.jpg" />
+        </div>
+
+        <div class="im col-sm-4">
+            <img src="~/Images/platter3.jpg" />
+            <h1 class="wr2">Добро пожаловать!</h1>
+            <p class="exctr">
+                У нас Вы можете вкусно поесть, а также заказать одно <br />
+                или несколько наших блюд на вынос.
+            </p>
+            <a class="bt1 btn btn-outline-light" type="submit" asp-controller="Home" asp-action="GetFirstDishes">Просмотр меню</a>
+        </div>
+
+        <style>
+            .im .bt1 {
+                position: absolute;
+                top: 90%;
+                left: 40%;
+                transform: translate(-60%, -40%);
+                -ms-transform: translate(-60%, -40%);
+                /*background-color: #f1f1f1;*/
+                font-weight: bold;
+            }
+
+            .im .wr2 {
+                position: absolute;
+                top: 60%;
+                left: 10%;
+                transform: translate(-60%, -40%);
+                -ms-transform: translate(-60%, -40%);
+                /*background-color: #f1f1f1;*/
+                color: white;
+            }
+
+            .im .exctr {
+                position: absolute;
+                top: 75%;
+                left: 10%;
+                transform: translate(-50%, -40%);
+                -ms-transform: translate(-60%, -40%);
+                width: 450px;
+                /*background-color: #f1f1f1;*/
+                color: white;
+                font-size: 16px;
+                font-weight: bold;
+            }
+        </style>
+    </div>
+    <div class="row m-1 p-1">
+        <div class="col-sm-5">
+            <img src="~/Images/coocker2.jpg" width="500" height="600"/>
+        </div>
+        <div class="col-sm-5" style="left:100px;top:30px">
+            <p style="text-align:justify;font-size:25px;font-weight:bold;text-indent:25px;font-family:'Segoe Script';
+left:50px; top:100px">
+                Идея заведения – стать вторым домом для своих гостей, или, если нужно, вторым офисом: здесь можно не только приятно бездельничать, а и работать.
+                Это предприятие, в котором организация высокого уровня обслуживания посетителей в торговом зале сочетается с организацией производства широкого 
+                ассортимента кулинарных, кондитерских изделий, а также изготовлением фирменных блюд, закусок и напитков.
+            </p>
+        </div>
+    </div>
+    @*<div class="row m-1 p-1 bg-dark" style="right:40%;transform:translate(0.5%)">
+        <div class="col-sm-2" style="height:200px">
+            <img src="/Images/Soups/tomato-soup.jpg" width="190" height="170" style="padding-top:20px;padding-left:5px" />
+        </div>
+        <div class="col-sm-4">
+            <br />
+            <h1 style="color:white">Our soupse</h1>
+            <p style="font-size:16px;color:white">We can suggest you one of the best first dishes</p>
+        </div>
+
+        <div class="col-sm-2" style="height:200px">
+            <img src="~/Images/SecondDish/potato-meat.jpg" width="190" height="170" style="padding-top:20px;" />
+        </div>
+        <div class="col-sm-4">
+            <br />
+            <h1 style="color:white">Our soupse</h1>
+            <p style="font-size:16px;color:white">We can suggest you one of the best first dishes</p>
+        </div>
+    </div>
+    <div class="row m-1 p-1 bg-dark" style="right:40%;transform:translate(0.5%)">
+        <div class="col-sm-2" style="height:200px">
+            <img src="~/Images/Salads/salad-healthyFood.jpg" width="190" height="170" style="padding-top:20px;padding-left:5px" />
+        </div>
+        <div class="col-sm-4">
+            <br />
+            <h1 style="color:white">Our soupse</h1>
+            <p style="font-size:16px;color:white">We can suggest you one of the best first dishes</p>
+        </div>
+
+        <div class="col-sm-2" style="height:200px">
+            <img src="~/Images/Pizza/pizza-vetchina.jpg" width="190" height="170" style="padding-top:20px;" />
+        </div>
+        <div class="col-sm-4">
+            <br />
+            <h1 style="color:white">Our soupse</h1>
+            <p style="font-size:16px;color:white">We can suggest you one of the best first dishes</p>
+        </div>
+    </div>*@
+    @*<div class="row m-1 p-1 bg-dark" style="right:40%;transform:translate(0.5%)">
+        <div class="col-sm-2" style="height:200px">
+            <img src="~/Images/Candies/clubnika-cake.jpg" width="190" height="170" style="padding-top:20px;padding-left:5px" />
+        </div>
+        <div class="col-sm-4">
+            <br />
+            <h1 style="color:white">Our soupse</h1>
+            <p style="font-size:16px;color:white">We can suggest you one of the best first dishes</p>
+        </div>
+
+        <div class="col-sm-2" style="height:200px">
+            <img src="~/Images/NonAlc/coffee.png" width="190" height="170" style="padding-top:20px;" />
+        </div>
+        <div class="col-sm-4">
+            <br />
+            <h1 style="color:white">Our soupse</h1>
+            <p style="font-size:16px;color:white">We can suggest you one of the best first dishes</p>
+        </div>
+    </div>*@
+</div>
+<div class="container-fluid">
+
+</div>

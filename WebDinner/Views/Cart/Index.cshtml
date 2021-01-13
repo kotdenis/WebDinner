@@ -1,0 +1,76 @@
+﻿@model CartIndexViewModel
+
+@{ 
+    Layout = "_Layout";
+    ViewBag.Title = "Корзина";
+}
+
+
+<h2>Ваш заказ</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Количество</th>
+            <th>Блюдо</th>
+            <th class="text-right">Цена</th>
+            <th class="text-right">Вместе</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        @foreach (var line in Model.Cart.FirstDishes)
+        {
+            <tr>
+                <td class="text-center">@line.Quantity</td>
+                <td class="text-left">@line.Meal.Name</td>
+                <td class="text-right">@String.Format("{0:c}", line.Meal.Price)</td>
+                <td class="text-right">
+                    @String.Format("{0:c}", (line.Meal.Price * line.Quantity))
+                </td>
+                <td>
+                    <form asp-controller="Cart" asp-action="RemoveFromFirstCart" method="post">
+                        <input type="hidden" name="@line.Meal.Id" value="@line.Meal.Id" />
+                        <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+                        <button type="submit" class="btn btn-sm btn-danger">
+                            Удалить
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+        @foreach (var line in Model.Cart.SecondDishes)
+        {
+            <tr>
+                <td class="text-center">@line.Quantity</td>
+                <td class="text-left">@line.Meal.Name</td>
+                <td class="text-right">@String.Format("{0:c}", line.Meal.Price)</td>
+                <td class="text-right">
+                    @String.Format("{0:c}", (line.Meal.Price * line.Quantity))
+                </td>
+                <td>
+                    <form asp-controller="Cart" asp-action="RemoveFromSecondCart" method="post">
+                        <input type="hidden" name="@line.Meal.Id" value="@line.Meal.Id" />
+                        <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+                        <button type="submit" class="btn btn-sm btn-danger">
+                            Удалить
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right"><h2 style="font-weight:bold">Итого</h2>:</td>
+            <td class="text-right">
+                <h2 style="font-weight:bold">@String.Format("{0:c}", Model.Cart.ComputeTotalValue())</h2>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+<div class="text-center">
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Продолжить заказ</a>
+    <a class="btn btn-primary" asp-action="Checkout" asp-controller="Order">
+        Подтвердить
+    </a>
+</div>

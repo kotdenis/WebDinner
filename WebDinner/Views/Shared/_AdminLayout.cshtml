@@ -1,0 +1,68 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" asp-href-include="~/Dist/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="~/Dist/jquery-validation-unobtrusive-master/src/jquery.validate.unobtrusive.js"></script>
+    <title>@ViewBag.Title</title>
+    <style>
+        .input-validation-error {
+            border-color: red;
+            background-color: #fee;
+        }
+    </style>
+</head>
+<body class="m-1 p-1">
+    <div>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark mb-1" style="height:80px">
+            <a class="navbar-brand ml-2" asp-controller="Home" asp-action="Index">
+                <img src="~/Images/dinner2.png" width="100" height="50" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Admin" asp-action="Index">Управление<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="AdminRole" asp-action="Index">Администрирование<span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                </ul>
+            </div>
+            @if (SignInManager.IsSignedIn(User))
+            {
+                // Signed in user
+                <form class="form-inline my-2 my-lg-2 mr-3 text-light" asp-controller="Account" asp-action="Logout">
+                    <Label class="m-2" style="color:white">@User.Identity.Name</Label>
+                    <input type="submit" value="Выйти" class="navbar-btn btn btn-danger" />
+                </form>
+            }
+            else
+            {
+                // Anonymous user
+                <a asp-controller="Account" asp-action="Login"
+                   class="btn btn-xs btn-info navbar-btn mr-3">Войти</a>
+            }
+        </nav>
+    </div>
+    <div class="bg-info p-2"><h4>@ViewBag.Title</h4></div>
+    @if (TempData["message"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["message"]
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+    }
+    @RenderBody()
+</body>
+</html>
